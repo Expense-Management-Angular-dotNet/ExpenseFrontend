@@ -1,0 +1,22 @@
+<div class="login-card">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <h2>Login</h2>
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="email" id="email" formControlName="email" placeholder="Email" required>
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" >
+        <small *ngIf="email?.errors?.['required']">Email is required.</small>
+        <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
+        <small *ngIf="email?.errors?.['emailDomain']">It must be an IUT mail.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input type="password" id="password" formControlName="Password" placeholder="Password" required>
+      <div *ngIf="password?.touched && password?.invalid">
+        <small *ngIf="password?.errors?.['required']">Password is required.</small>
+      </div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>
