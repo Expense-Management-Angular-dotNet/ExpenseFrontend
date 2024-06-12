@@ -6,7 +6,7 @@
 }
 
 .login-card {
-  background-color: white;
+  background-color: #6d5f68;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
@@ -16,6 +16,7 @@
 
 .form-group {
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 label {
@@ -33,8 +34,8 @@ input {
 }
 
 button{
-  background-color: #4285F4;
-  color: white;
+  background-color: #fff;
+  color: black;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;

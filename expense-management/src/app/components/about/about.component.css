@@ -1,0 +1,27 @@
+:host{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.about-card {
+  background-color: #555555;
+  background: linear-gradient(to bottom, #6d5f68,	#cec9cc);
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 500px;
+}
+
+.about-card2 {
+  background-color: #777777;
+  background: linear-gradient(to bottom, #6d5f68,	#cec9cc);
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 500px;
+  margin-top: 50px;
+}
