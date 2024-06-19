@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,HeaderComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'] // Corrected property name to 'styleUrls'
 })
 export class LoginComponent {
+  @Output() loginStatus = new EventEmitter<boolean>();
   loginForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private router: Router) {
+  islogin: boolean = true;
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required, Validators.email, this.emailDomainValidator]],
       password: ["", [Validators.required]] // Corrected 'Password' to 'password'
-
     });
     console.log(this.loginForm);
+    this.route.url.subscribe(url => {
+      this.islogin = url[0].path === 'login';
+    });
   }
 
   isValid() {
@@ -38,6 +41,8 @@ export class LoginComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
+      localStorage.setItem('isLogin', 'true')
+      this.loginStatus.emit(true);
       this.router.navigate(['/dashboard']);
     } else {
       console.log('Invalid Form');
