@@ -7,7 +7,7 @@ import { AuthGuard } from '../guard/auth.guard';  // Import the AuthGuard
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },  // Redirect to dashboard by default
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},  // Redirect to dashboard by default
   { path: 'login', component: LoginComponent },
   { path: 'update-password', component: UpdatePasswordComponent},  // Protect the update-password route
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },  // Protect the dashboard route

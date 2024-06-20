@@ -36,12 +36,6 @@ export class AppComponent {
   ngOnInit() {
     const storedLoginStatus = localStorage.getItem('islogin');
     this.islogin = storedLoginStatus === 'true';
-  /*  if (this.islogin) {
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.router.navigate(['/login']);
-    }
-    */
   }
 
   updatedLoginStatus(status: boolean) {
@@ -57,4 +51,5 @@ export class AppComponent {
   logout() {
     this.updatedLoginStatus(false);
   }
+
 }
