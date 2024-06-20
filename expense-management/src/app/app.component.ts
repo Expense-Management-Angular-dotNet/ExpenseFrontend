@@ -31,7 +31,7 @@ export class AppComponent {
 
   islogin: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor( private router: Router) {}
 
   ngOnInit() {
     const storedLoginStatus = localStorage.getItem('islogin');

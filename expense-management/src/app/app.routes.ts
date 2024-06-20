@@ -11,6 +11,6 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'update-password', component: UpdatePasswordComponent},  // Protect the update-password route
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },  // Protect the dashboard route
-  { path: 'about', component: AboutComponent }  // Protect other routes as needed
+  { path: 'about', component: AboutComponent,canActivate: [AuthGuard] }  // Protect other routes as needed
 ];
 
