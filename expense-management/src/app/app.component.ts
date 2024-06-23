@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Nav1Component } from './components/nav1/nav1.component';
 import { CommonModule } from '@angular/common';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { AdminComponent } from './components/admin/admin.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,6 +23,7 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
     Nav1Component,
     CommonModule,
     UpdatePasswordComponent,
+    AdminComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
