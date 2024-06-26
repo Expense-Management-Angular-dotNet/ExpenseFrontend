@@ -1,7 +1,7 @@
 <div>
   <app-header *ngIf="!islogin"></app-header>
   <app-nav1 *ngIf="islogin"></app-nav1>
-  <app-login *ngIf="!islogin"(loginStatus)="updatedLoginStatus($event)"></app-login>
+  <!-- <app-login *ngIf="!islogin"(loginStatus)="updatedLoginStatus($event)"></app-login> -->
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>
