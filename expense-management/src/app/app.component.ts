@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { AuthService } from './Services/auth.service';  // Import the AuthService
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { Nav1Component } from './components/nav1/nav1.component';
-import { CommonModule } from '@angular/common';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,32 +27,36 @@ import { AdminComponent } from './components/admin/admin.component';
     AdminComponent
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'expense-management';
 
   islogin: boolean = false;
+  userRole: string | null = null;
 
-  constructor( private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
-    const storedLoginStatus = localStorage.getItem('islogin');
-    this.islogin = storedLoginStatus === 'true';
+    this.islogin = this.authService.hasToken();
+    this.userRole = this.authService.getUserRole();
+    this.authService.loginstatus$.subscribe(status => {
+      this.islogin = status;
+      this.userRole = this.authService.getUserRole();
+    });
   }
 
   updatedLoginStatus(status: boolean) {
     this.islogin = status;
     if (status) {
-      localStorage.setItem('islogin', 'true');
       this.router.navigate(['/dashboard']);
     } else {
-      localStorage.removeItem('islogin');
       this.router.navigate(['/login']);
     }
   }
-  logout() {
-    this.updatedLoginStatus(false);
-  }
 
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }
