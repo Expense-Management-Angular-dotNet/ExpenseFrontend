@@ -10,6 +10,7 @@ import { Nav1Component } from './components/nav1/nav1.component';
 import { CommonModule } from '@angular/common';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { SearchComponent } from './components/search/search.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -23,7 +24,8 @@ import { AdminComponent } from './components/admin/admin.component';
     Nav1Component,
     CommonModule,
     UpdatePasswordComponent,
-    AdminComponent
+    AdminComponent,
+    SearchComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

@@ -6,9 +6,9 @@
 }
 
 .admin-form-container{
-  background-color: #6d5f68;
+  background-color: transparent;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
   padding: 20px;
   width: 400px;
   text-align: center;
@@ -58,7 +58,8 @@ button {
   background-color: #fff;
   color: black;
   border: none;
-  padding: 10px 20px;
+  padding: 5px 20px;
+  margin:4px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;

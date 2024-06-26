@@ -1,0 +1,17 @@
+<div class="search-overlay">
+  <div class="search-container">
+    <button class="close-btn" (click)="close()">×</button>
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div class="form-group">
+        <label for="query">Search by Username or Email:</label>
+        <input id="query" formControlName="query" placeholder="Enter username or email">
+        <button type="submit" [disabled]="!searchForm.valid || isLoading">Search</button>
+      </div>
+    </form>
+    <div *ngIf="isLoading">Loading...</div>
+    <ul *ngIf="searchResults.length > 0">
+      <li *ngFor="let user of searchResults">{{ user.username }} - {{ user.email }}</li>
+    </ul>
+    <div *ngIf="!isLoading && searchResults.length === 0 && searchForm.get('query').touched">No results found</div>
+  </div>
+</div>
