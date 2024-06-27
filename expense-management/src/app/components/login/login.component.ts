@@ -52,6 +52,9 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         }), catchError(error =>{
             console.log("Error", error);
+            if(error.status==303){
+              this.router.navigate(['/update-password'])
+            }
             alert(error.error.message || 'Login failed');
             return of(null);
         })
