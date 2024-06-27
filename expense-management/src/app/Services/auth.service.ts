@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -36,12 +37,15 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  getUserRole() : string | null{
+  getUserRole(): string | null {
     const token = this.getToken();
-    if(!token) return null;
-
+    if (!token) return null;
+    const helper = new JwtHelperService();
+    const decodedToken = helper.decodeToken(token);
+    console.log("Token", decodedToken);
     const payload = atob(token.split('.')[1]);
     const parsedpayload = JSON.parse(payload);
-    return parsedpayload.Role;
+    console.log('Role', parsedpayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]);
+    return parsedpayload["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
   }
 }

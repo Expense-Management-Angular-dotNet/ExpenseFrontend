@@ -56,13 +56,6 @@ export class UpdatePasswordComponent {
     
   }
 
-  get password() {
-    return this.updatePasswordForm.get('password');
-  }
-
-  get email() {
-    return this.updatePasswordForm.get('email');
-  }
 
 
 
