@@ -3,10 +3,10 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from './components/about/about.component';
-import { authGuard } from '../guard/auth.guard'; // Import the AuthGuard
+import { authGuard } from '../app/guard/auth.guard'; // Import the AuthGuard
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { roleGuard } from '../guard/role.guard';
+import { roleGuard } from '../app/guard/role.guard';
 
 import { SearchComponent } from './components/search/search.component';
 
