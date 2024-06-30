@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { AuthService } from './Services/auth.service';  // Import the AuthService
+import { AuthService } from './Services/auth.service'; // Import the AuthService
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -8,9 +8,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Nav1Component } from './components/nav1/nav1.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -24,7 +21,8 @@ import { RouterModule } from '@angular/router';
     Nav1Component,
     CommonModule,
     UpdatePasswordComponent,
-    AdminComponent
+    AdminComponent,
+    SearchComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -40,7 +38,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.islogin = this.authService.hasToken();
     this.userRole = this.authService.getUserRole();
-    this.authService.loginstatus$.subscribe(status => {
+    this.authService.loginstatus$.subscribe((status) => {
       this.islogin = status;
       this.userRole = this.authService.getUserRole();
     });

@@ -8,6 +8,8 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
 import { AdminComponent } from './components/admin/admin.component';
 import { roleGuard } from '../guard/role.guard';
 
+import { SearchComponent } from './components/search/search.component';
+
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' }, // Redirect to dashboard by default
   { path: 'login', component: LoginComponent },
@@ -24,4 +26,5 @@ export const routes: Routes = [
     canActivate: [authGuard, roleGuard],
     data: { Role: 'Admin' },
   },
+  { path: 'search', component: SearchComponent, canActivate: [authGuard] },
 ];

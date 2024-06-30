@@ -1,6 +1,7 @@
 <div class="admin-form-container">
   <h2>Create User</h2>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- Existing form fields -->
     <div class="form-group">
       <label for="username">Username:</label>
       <input id="username" formControlName="username" placeholder="Username">
@@ -50,4 +51,8 @@
     </div>
     <button type="submit" [disabled]="!userForm.valid">Create User</button>
   </form>
+  <button (click)="openSearch()">Search Users</button>
+  <button (click)="logout()">Logout</button>
 </div>
+
+<app-search *ngIf="showSearch" (closeSearch)="closeSearch()"></app-search>
