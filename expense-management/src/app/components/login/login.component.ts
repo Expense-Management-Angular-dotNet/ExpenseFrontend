@@ -14,7 +14,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
-import { AuthService } from '../../Services/auth/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { catchError, of, tap } from 'rxjs';
 @Component({
   selector: 'app-login',
@@ -37,10 +37,10 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]], //, this.emailDomainValidator
       password: ['', [Validators.required]], // Corrected 'Password' to 'password'
     });
-    console.log(this.loginForm);
-    this.route.url.subscribe((url) => {
-      this.islogin = url[0].path === 'login';
-    });
+    // console.log(this.loginForm);
+    // this.route.url.subscribe(url => {
+    //   this.islogin = url[0].path === 'login';
+    // });
   }
 
   isValid() {
