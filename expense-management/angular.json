@@ -26,7 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "~handsontable/dist/handsontable.full.css"
+              "~handsontable/dist/handsontable.full.css",
+              "ag-grid-community/styles/ag-grid.css"
             ],
             "scripts": []
           },
