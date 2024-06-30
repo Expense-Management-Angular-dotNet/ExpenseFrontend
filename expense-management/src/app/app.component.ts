@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { AuthService } from './Services/auth.service'; // Import the AuthService
+import { AuthService } from './Services/auth/auth.service'; // Import the AuthService
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -8,6 +8,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { Nav1Component } from './components/nav1/nav1.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { RouterModule } from '@angular/router';
+import { SearchComponent } from './components/search/search.component';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   standalone: true,
