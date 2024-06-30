@@ -14,7 +14,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { HeaderComponent } from '../header/header.component';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { catchError, of, tap } from 'rxjs';
 @Component({
   selector: 'app-login',
